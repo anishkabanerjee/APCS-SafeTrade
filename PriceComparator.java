@@ -32,15 +32,15 @@ public class PriceComparator implements java.util.Comparator<TradeOrder>
 
     public int compare(TradeOrder order1, TradeOrder order2)
     {
-        if (order1.isMarketOrder() && order2.isMarketOrder())
+        if (order1.isMarket() && order2.isMarket())
         {
             return 0;
         }
-        else if (order1.isMarketOrder() && !order2.isMarketOrder())
+        else if (order1.isMarket() && !order2.isMarket())
         {
             return -1;
         }
-        else if(!order1.isMarketOrder() && order2.isMarketOrder())
+        else if(!order1.isMarket() && order2.isMarket())
         {
             return 1;
         }

@@ -13,18 +13,129 @@ public class TradeOrder
     private int numShares;
     private double price;
 
-    // TODO complete class
 
-    //
-    // The following are for test purposes only
-    //
+    /**
+     * Create a new TradeOrder object.
+     *
+     * @param trader a trader who placed this order
+     * @param symbol stock symbol
+     * @param buyOrder if true this is a buy order; otherwise this is a sell
+     * order
+     * @param marketOrder if true this is a market order; otherwise this is a
+     * limit order
+     * @param numShares the number of shares to be traded
+     * @param price the bid or ask price, if this is a limit order
+     */
+    public TradeOrder(Trader trader, String symbol, boolean buyOrder, boolean
+        marketOrder, int numShares, double price)
+    {
+        this.trader = trader;
+        this.symbol = symbol;
+        this.buyOrder = buyOrder;
+        this.marketOrder = marketOrder;
+        this.numShares = numShares;
+        this.price = price;
+    }
+
+
+    /**
+     * Returns the trader for this trade order. .
+     *
+     * @return the trader who placed this trade order
+     */
+    public Trader getTrader()
+    {
+        return trader;
+    }
+
+    /**
+     * Returns the stock symbol for this trade order.
+     *
+     * @return the stock symbol for this trade order
+     */
+    public String getSymbol()
+    {
+        return symbol;
+    }
+
+    /**
+     * Returns true if this is a buy order; otherwise returns false.
+     *
+     * @return true if this is a buy order; false otherwise
+     */
+    public boolean isBuy()
+    {
+        return buyOrder;
+    }
+
+    /**
+     * Returns true if this is a sell order; otherwise returns false.
+     *
+     * @return true if this is a sell order; false otherwise
+     */
+    public boolean isSell()
+    {
+        return !buyOrder;
+    }
+
+    /**
+     * Returns true if this is a market order; otherwise returns false.
+     *
+     * @return true if this is a market order; false otherwise
+     */
+    public boolean isMarket()
+    {
+        return marketOrder;
+    }
+
+    /**
+     * Returns true if this is a limit order; otherwise returns false.
+     *
+     * @return true if this is a limit order; false otherwise
+     */
+    public boolean isLimit()
+    {
+        return !marketOrder;
+    }
+
+    /**
+     * Returns the number of shares to be traded in this trade order.
+     *
+     * @return the number of shares to be traded in this trade order
+     */
+    public int getShares()
+    {
+        return numShares;
+    }
+
+    /**
+     * Returns the price per share for this trade order (used by a limit order).
+     *
+     * @return the price per share for this trade order
+     */
+    public double getPrice()
+    {
+        return price;
+    }
+
+    /**
+     * Subtracts a given number of shares from the total number of shares in
+     * this trade order.
+     *
+     * @param shares a number of shares to be subtracted
+     */
+    public void subtractShares(int shares)
+    {
+        numShares -= shares;
+    }
+
     /**
      * <p>
      * A generic toString implementation that uses reflection to print names and
      * values of all fields <em>declared in this class</em>. Note that
      * superclass fields are left out of this implementation.
      * </p>
-     * 
+     *
      * @return a string representation of this TradeOrder.
      */
     public String toString()
@@ -50,113 +161,5 @@ public class TradeOrder
         }
 
         return str + "]";
-    }
-
-    /**
-     * Get the current value of trader.
-     * @return The value of trader for this object.
-     */
-    public Trader getTrader()
-    {
-        return trader;
-    }
-
-    /**
-     * Set the value of trader for this object.
-     * @param trader The new value for trader.
-     */
-    public void setTrader(Trader trader)
-    {
-        this.trader = trader;
-    }
-
-    /**
-     * Get the current value of symbol.
-     * @return The value of symbol for this object.
-     */
-    public String getSymbol()
-    {
-        return symbol;
-    }
-
-    /**
-     * Set the value of symbol for this object.
-     * @param symbol The new value for symbol.
-     */
-    public void setSymbol(String symbol)
-    {
-        this.symbol = symbol;
-    }
-
-    /**
-     * Get the current value of buyOrder.
-     * @return The value of buyOrder for this object.
-     */
-    public boolean isBuyOrder()
-    {
-        return buyOrder;
-    }
-
-    /**
-     * Set the value of buyOrder for this object.
-     * @param buyOrder The new value for buyOrder.
-     */
-    public void setBuyOrder(boolean buyOrder)
-    {
-        this.buyOrder = buyOrder;
-    }
-
-    /**
-     * Get the current value of marketOrder.
-     * @return The value of marketOrder for this object.
-     */
-    public boolean isMarketOrder()
-    {
-        return marketOrder;
-    }
-
-    /**
-     * Set the value of marketOrder for this object.
-     * @param marketOrder The new value for marketOrder.
-     */
-    public void setMarketOrder(boolean marketOrder)
-    {
-        this.marketOrder = marketOrder;
-    }
-
-    /**
-     * Get the current value of numShares.
-     * @return The value of numShares for this object.
-     */
-    public int getNumShares()
-    {
-        return numShares;
-    }
-
-    /**
-     * Set the value of numShares for this object.
-     * @param numShares The new value for numShares.
-     */
-    public void setNumShares(int numShares)
-    {
-        this.numShares = numShares;
-    }
-
-    /**
-     * Get the current value of price.
-     * @return The value of price for this object.
-     */
-    public double getPrice()
-    {
-        return price;
-    }
-
-    /**
-     * Set the value of price for this object.
-     * @param price The new value for price.
-     */
-    public void setPrice(double price)
-    {
-        this.price = price;
     }
 }

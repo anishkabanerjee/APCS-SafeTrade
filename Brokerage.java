@@ -67,8 +67,10 @@ public class Brokerage implements Login
     }
 
     /**
-     * Place a description of your method here.
-     * @param trader
+     * Removes a specified trader from the set of logged-in traders. The trader
+     * may be assumed to logged in already.
+     *
+     * @param trader the trader that logs out
      */
     public void logout(Trader trader)
     {

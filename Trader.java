@@ -15,13 +15,13 @@ public class Trader implements Comparable<Trader>
      * Constructs a new trader, affiliated with a given brockerage, with a given
      * screen name and password.
      *
-     * @param b - the brokerage for this trader
+     * @param brokerage - the brokerage for this trader
      * @param name - user name
      * @param pswd - password
      */
-    public Trader(Brokerage b, String name, String pswd)
+    public Trader(Brokerage brokerage, String name, String pswd)
     {
-        brokerage = b;
+        this.brokerage = brokerage;
         screenName = name;
         password = pswd;
     }
