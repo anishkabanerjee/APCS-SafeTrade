@@ -18,13 +18,12 @@ import junit.framework.JUnit4TestAdapter;
  *   StockExchange
  *   Stock
  *
- * @author TODO Name of principal author
- * @author TODO Name of group member
- * @author TODO Name of group member
- * @version TODO date
+ * @author Anishka Banerjee
+ * @author Agnik Banerjee
+ * @version 21 March 2021
  * @author Assignment: JM Chapter 19 - SafeTrade
- * 
- * @author Sources: TODO sources
+ *
+ * @author Sources: N/A
  *
  */
 public class JUSafeTradeTest
@@ -66,7 +65,7 @@ public class JUSafeTradeTest
                         && toStr.contains( "int numShares:" + numShares )
                         && toStr.contains( "double price:" + price ) );
     }
-    
+
     @Test
     public void TradeOrderToString()
     {
@@ -160,7 +159,7 @@ public class JUSafeTradeTest
             + ") should be " + ( numShares - numToSubtract ) + ">>", numShares
             - numToSubtract, to.getShares() );
     }
-    
+
     // --Test TraderWindow Stub
     @Test
     public void traderWindowConstructor()
@@ -178,37 +177,37 @@ public class JUSafeTradeTest
     }
 
     //  --Test PriceComparator
-    
-    // TODO your tests here
-    
-    
-    // --Test Trader
-    
-    // TODO your tests here
-    
-    
-    // --Test Brokerage
-    
-    // TODO your tests here
-    
-    
-    // --Test StockExchange
-    
-    // TODO your tests here
-    
-    
-    // --Test Stock
-    
+
     // TODO your tests here
 
-    
+
+    // --Test Trader
+
+    // TODO your tests here
+
+
+    // --Test Brokerage
+
+    // TODO your tests here
+
+
+    // --Test StockExchange
+
+    // TODO your tests here
+
+
+    // --Test Stock
+
+    // TODO your tests here
+
+
     // Remove block comment below to run JUnit test in console
 /*
     public static junit.framework.Test suite()
     {
         return new JUnit4TestAdapter( JUSafeTradeTest.class );
     }
-    
+
     public static void main( String args[] )
     {
         org.junit.runner.JUnitCore.main( "JUSafeTradeTest" );
