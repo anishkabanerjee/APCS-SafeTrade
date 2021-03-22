@@ -10,10 +10,10 @@ import java.util.*;
 public class StockExchange
 {
     private Map<String, Stock> listedStocks;
-    
+
     // TODO complete class
 
-    
+
     //
     // The following are for test purposes only
     //
@@ -21,14 +21,14 @@ public class StockExchange
     {
         return listedStocks;
     }
-    
+
     /**
      * <p>
      * A generic toString implementation that uses reflection to print names and
      * values of all fields <em>declared in this class</em>. Note that
      * superclass fields are left out of this implementation.
      * </p>
-     * 
+     *
      * @return a string representation of this StockExchange.
      */
     public String toString()
@@ -38,16 +38,16 @@ public class StockExchange
 
         Field[] fields = this.getClass().getDeclaredFields();
 
-        for ( Field field : fields )
+        for (Field field : fields)
         {
             try
             {
                 str += separator + field.getType().getName() + " "
-                    + field.getName() + ":" + field.get( this );
+                    + field.getName() + ":" + field.get(this);
             }
-            catch ( IllegalAccessException ex )
+            catch (IllegalAccessException ex)
             {
-                System.out.println( ex );
+                System.out.println(ex);
             }
 
             separator = ", ";
