@@ -21,7 +21,7 @@ public class PriceComparator implements java.util.Comparator<TradeOrder>
      * descending order. The order of comparison depends on the value of a given
      * parameter. Sets the private boolean ascending flag to asc.
      *
-     * @param asc if true, make an ascending comparator; otherwise make a
+     * @param asc - if true, make an ascending comparator; otherwise make a
      * descending comparator.
      */
     public PriceComparator(boolean asc)

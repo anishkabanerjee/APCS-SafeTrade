@@ -9,14 +9,63 @@ import java.util.*;
  */
 public class StockExchange
 {
+
     private Map<String, Stock> listedStocks;
 
-    // TODO complete class
+
+    /**
+     * Create a new StockExchange object.
+     */
+    public StockExchange()
+    {
+        listedStocks = new HashMap<String, Stock>();
+    }
 
 
-    //
-    // The following are for test purposes only
-    //
+    /**
+     * Adds a new stock with given parameters to the listed stocks.
+     *
+     * @param symbol - stock symbol
+     * @param name - full company name
+     * @param price - opening stock price
+     */
+    public void listStock(String symbol, String name, double price)
+    {
+        Stock stock = new Stock(symbol, name, price);
+        listedStocks.put(symbol, stock);
+    }
+
+    /**
+     * Returns a quote for a given stock. If the symbol (ex. XYZ) is not found
+     * in the exchange's list of stocks, the string that is returned should be
+     * "XYZ not found".
+     *
+     * @param symbol - stock symbol
+     *
+     * @return a text message that contains the quote
+     */
+    public String getQuote(String symbol)
+    {
+        return listedStocks.get(symbol).getQuote();
+    }
+
+    /**
+     * Places a trade order by calling stock.placeOrderfor the stock specified
+     * by the stock symbol in the trade order. If the stock (ex. XYZ) is not
+     * found in the exchange's list of stocks, then the exchange sends a message
+     * to the trader with the message "XYZ not found".
+     *
+     * @param order - a trading order to be placed with this stock exchange
+     */
+    public void placeOrder(TradeOrder order)
+    {
+        listedStocks.get(order.getSymbol()).placeOrder(order);
+    }
+
+    /**
+     * Get the current value of getListedStocks.
+     * @return the value of getListedStocks for this object.
+     */
     protected Map<String, Stock> getListedStocks()
     {
         return listedStocks;
