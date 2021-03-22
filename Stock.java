@@ -70,7 +70,7 @@ public class Stock
     }
 
     /**
-     * Places a trading order for this stock.Adds the order to the appropriate '
+     * Places a trading order for this stock. Adds the order to the appropriate '
      * priority queue depending on whether this is a buy or sell order.
      * Notifies the trader who placed the order that the order has been placed,
      * by sending a message to that trader.
@@ -141,24 +141,23 @@ public class Stock
         {
             if (!topBuyOrder.isMarket() && !topSellOrder.isMarket())
             {
-                if(topBuyOrder.getPrice() >= topSellOrder.getPrice())
+                if (topBuyOrder.getPrice() >= topSellOrder.getPrice())
                 {
-                    if(topSellOrder.getShares() > topSellOrder.getShares())
+                    if (topSellOrder.getShares() > topSellOrder.getShares())
                     {
                         topSellOrder.subtractShares(topBuyOrder.getShares());
                         numSharesSold = topBuyOrder.getShares();
                         priceSoldAt = topSellOrder.getPrice();
                         buyOrders.remove();
                     }
-                    else if(topSellOrder.getShares() < topBuyOrder.getShares())
+                    else if (topSellOrder.getShares() < topBuyOrder.getShares())
                     {
                         topBuyOrder.subtractShares(topSellOrder.getShares());
-
                         numSharesSold = topSellOrder.getShares();
                         priceSoldAt = topSellOrder.getPrice();
                         sellOrders.remove();
                     }
-                    else if(topSellOrder.getShares() == topBuyOrder.getShares())
+                    else if (topSellOrder.getShares() == topBuyOrder.getShares())
                     {
                         numSharesSold = topBuyOrder.getShares();
                         priceSoldAt = topSellOrder.getPrice();
@@ -246,13 +245,13 @@ public class Stock
             topSellOrder.getTrader().recieveMessage("You just sold " + msg);
         }
 
-        if (priceSoldAt >= hiPrice)
+        if (priceSoldAt < loPrice)
         {
-          hiPrice = priceSoldAt;
+            loPrice = priceSoldAt;
         }
-        else
+        else if (priceSoldAt > hiPrice)
         {
-          loPrice = priceSoldAt;
+            hiPrice = priceSoldAt;
         }
 
         volume += numSharesSold;
@@ -260,6 +259,7 @@ public class Stock
         {
             lastPrice = priceSoldAt;
         }
+
         if (numSharesSold != 0)
         {
             executeOrders();
